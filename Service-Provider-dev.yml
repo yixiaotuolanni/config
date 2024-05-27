@@ -1,0 +1,14 @@
+server:
+  port: 11000
+spring:
+  application:
+    name: "Service-Provider"
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    service-url:
+      defaultZone : "http://localhost:18000/eureka,http://localhost:18001/eureka"
